@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="my-time">
+        <h2 style="text-decoration: underline;margin-bottom: 15px;">Your Time</h2>
+        <div class="my-time-cont">
+          <div class="zone">
+            <h2>Kathmandu</h2>
+          </div>
+          <div class="time" id="mytime"></div>
+          <div class="date" id="mydate"></div>
+        </div>
+        <div class="world-time-cont">
+          <h2 style="text-decoration: underline;margin-bottom: 15px;">Time Around the World</h2>
+          <div class="world bangkok">
+            <h2>Bangkok &nbsp;</h2>
+            <div class="time" id="bangkok-time"></div>
+            <div class="date" id="bangkok-date"></div>
+          </div>
+          <div class="world taiwan">
+            <h2>Taiwan &nbsp; &nbsp;</h2>
+            <div class="time" id="taiwan-time"></div>
+            <div class="date" id="taiwan-date"></div>
+          </div>
+          <div class="world berlin">
+            <h2>Berlin &nbsp; &nbsp;</h2>
+            <div class="time" id="berlin-time"></div>
+            <div class="date" id="berlin-date"></div>
+          </div>
+          <div class="world newyork">
+            <h2>New York &nbsp;</h2>
+            <div class="time" id="newyork-time"></div>
+            <div class="date" id="newyork-date"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    
+    var myVar = setInterval(myTimer, 1000);
+    function myTimer() {
+      var a = new Date();
+      document.getElementById("mytime").innerHTML = a.toLocaleTimeString();
+    }
+    // print the current date with month name short
+    function myDate() {
+      var a = new Date();
+      document.getElementById("mydate").innerHTML = a.getDate() + " " + a.toLocaleString("en-US", { month: "short" }) + "," + a.getFullYear();
+    }
+    myDate();
+    // Bangkok time
+    var bangkok = setInterval(bangkokTime, 1000);
+    function bangkokTime() {
+      var a = new Date();
+      var b = a.toLocaleString("en-US", { timeZone: "Asia/Bangkok" });
+      var c = new Date(b);
+      document.getElementById("bangkok-time").innerHTML = c.toLocaleTimeString();
+      // bangkok date
+      document.getElementById("bangkok-date").innerHTML = c.getDate() + " " + c.toLocaleString("en-US", { month: "short" }) + "," + c.getFullYear();
+    }
+    bangkokTime();
+
+    // Taiwan Time
+    var taiwan = setInterval(taiwanTime, 1000);
+    function taiwanTime() {
+      var a = new Date();
+      var b = a.toLocaleString("en-US", { timeZone: "Asia/Taipei" });
+      var c = new Date(b);
+      document.getElementById("taiwan-time").innerHTML = c.toLocaleTimeString();
+      // taiwan date
+      document.getElementById("taiwan-date").innerHTML = c.getDate() + " " + c.toLocaleString("en-US", { month: "short" }) + "," + c.getFullYear();
+    }
+    taiwanTime();
+    // Berlin Time
+    var berlin = setInterval(berlinTime, 1000);
+    function berlinTime() {
+        var a = new Date();
+        var b = a.toLocaleString("en-US", { timeZone: "Europe/Berlin" });
+        var c = new Date(b);
+        document.getElementById("berlin-time").innerHTML = c.toLocaleTimeString();
+        // berlin date
+        document.getElementById("berlin-date").innerHTML = c.getDate() + " " + c.toLocaleString("en-US", { month: "short" }) + "," + c.getFullYear();
+    }
+    berlinTime();
+    // New York Time
+    var newyork = setInterval(newyorkTime, 1000);
+    function newyorkTime() {
+        var a = new Date();
+        var b = a.toLocaleString("en-US", { timeZone: "America/New_York" });
+        var c = new Date(b);
+        document.getElementById("newyork-time").innerHTML = c.toLocaleTimeString();
+        // newyork date
+        document.getElementById("newyork-date").innerHTML = c.getDate() + " " + c.toLocaleString("en-US", { month: "short" }) + "," + c.getFullYear();
+    }
+    newyorkTime();
+   
+  </script>
+</html>
